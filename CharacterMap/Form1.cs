@@ -44,16 +44,9 @@ namespace CharacterMap
 			this.textCodeBox.Text = string.Join(' ', this.outputBox.Text.Select(c => $"U+{(int)c:X}"));
 		}
 
-		private void jumpToGroupBox_SelectedIndexChanged(object sender, EventArgs e)
+		private void characterTableControl1_OnPositionChange(object sender, int e)
 		{
-			switch (this.jumpToGroupBox.SelectedIndex)
-			{
-				case 0:
-					this.characterTableControl1.HighlightStart = 0x300;
-					this.characterTableControl1.HighlightEnd = 0x36F;
-					this.characterTableControl1.CharacterPosition = 0x300;
-					break;
-			}
+			this.jumpToInput.Text = e.ToString("X");
 		}
 	}
 }

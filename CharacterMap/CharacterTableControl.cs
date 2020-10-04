@@ -53,6 +53,7 @@ namespace CharacterMap
 			set
 			{
 				this.charPos = value;
+				this.OnPositionChange?.Invoke(this, this.charPos);
 				this.Refresh();
 			}
 		}
@@ -80,6 +81,7 @@ namespace CharacterMap
 		public int HorizontalCharacterCount => this.horizontalCharacterCount;
 		public int VerticalCharacterCount => this.verticalCharacterCount;
 		public event EventHandler<int> OnClickCharacter;
+		public event EventHandler<int> OnPositionChange;
 
 		public CharacterTableControl()
 		{
@@ -106,6 +108,8 @@ namespace CharacterMap
 			{
 				this.charPos = 0;
 			}
+
+			this.OnPositionChange?.Invoke(this, this.charPos);
 
 			this.Refresh();
 		}

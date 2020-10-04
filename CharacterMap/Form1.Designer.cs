@@ -33,7 +33,6 @@
 			this.jumpToButton = new System.Windows.Forms.Button();
 			this.outputBox = new System.Windows.Forms.TextBox();
 			this.textCodeBox = new System.Windows.Forms.TextBox();
-			this.jumpToGroupBox = new System.Windows.Forms.ComboBox();
 			this.jumpToInput = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
@@ -61,6 +60,7 @@
 			this.characterTableControl1.TabIndex = 1;
 			this.characterTableControl1.Text = "characterTableControl1";
 			this.characterTableControl1.VerticalMargin = 5;
+			this.characterTableControl1.OnPositionChange += new System.EventHandler<int>(this.characterTableControl1_OnPositionChange);
 			// 
 			// jumpToButton
 			// 
@@ -95,23 +95,13 @@
 			this.textCodeBox.Size = new System.Drawing.Size(372, 57);
 			this.textCodeBox.TabIndex = 4;
 			// 
-			// jumpToGroupBox
-			// 
-			this.jumpToGroupBox.FormattingEnabled = true;
-			this.jumpToGroupBox.Items.AddRange(new object[] {
-            "Combining Characters"});
-			this.jumpToGroupBox.Location = new System.Drawing.Point(199, 10);
-			this.jumpToGroupBox.Name = "jumpToGroupBox";
-			this.jumpToGroupBox.Size = new System.Drawing.Size(121, 23);
-			this.jumpToGroupBox.TabIndex = 5;
-			this.jumpToGroupBox.SelectedIndexChanged += new System.EventHandler(this.jumpToGroupBox_SelectedIndexChanged);
-			// 
 			// jumpToInput
 			// 
 			this.jumpToInput.Location = new System.Drawing.Point(12, 10);
 			this.jumpToInput.Name = "jumpToInput";
 			this.jumpToInput.Size = new System.Drawing.Size(100, 23);
 			this.jumpToInput.TabIndex = 6;
+			this.jumpToInput.Text = "0";
 			// 
 			// Form1
 			// 
@@ -119,7 +109,6 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.jumpToInput);
-			this.Controls.Add(this.jumpToGroupBox);
 			this.Controls.Add(this.textCodeBox);
 			this.Controls.Add(this.outputBox);
 			this.Controls.Add(this.jumpToButton);
@@ -141,7 +130,6 @@
 		private System.Windows.Forms.Button jumpToButton;
 		private System.Windows.Forms.TextBox outputBox;
 		private System.Windows.Forms.TextBox textCodeBox;
-		private System.Windows.Forms.ComboBox jumpToGroupBox;
 		private System.Windows.Forms.TextBox jumpToInput;
 	}
 }
